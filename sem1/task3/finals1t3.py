@@ -40,7 +40,7 @@ else:
     print("Lack of information")
     flag=True
   elif(edge.lower()=="no" and fhead!=onboard):
-    print("The train consists",fhead+onboard,"wagons")
+    print("The train consists",fhead+onboard-1,"wagons")
     flag=True
   else:
     frag=True
