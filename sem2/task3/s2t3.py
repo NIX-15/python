@@ -8,8 +8,8 @@ for i in range(n):
     print(f"Day {i+1} - Temperature {temp}")
     if temp>0:
         series+=1
-    elif series>record:
-        record,series=series,0
+        if series>record:
+            record=series
     else:
         series=0   
 print(record)
