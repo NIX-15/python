@@ -1,0 +1,5 @@
+mytext=input("Пиши текст: ")
+mylist=mytext.split( )
+myset=set(mylist)
+print(myset)
+print(f"В данном тексте {len(myset)} уникальных слов.")
