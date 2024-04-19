@@ -8,3 +8,8 @@ with open('file2.txt','w+') as data1:
 data = open('file1.txt','a')
 data.writelines(nums+'\n')
 data.close()
+path = 'file1.txt'
+data2=open('file1.txt')
+for line in data2:
+    print(line)
+data2.close()    
