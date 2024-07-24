@@ -1,11 +1,11 @@
 import functions_phonebook
 phone_book = "phone_book.txt"
-pointer = ""
+#pointer = ""
 
-def check_phone_book(file_name,cursor):
+def check_phone_book(phone_book_arg):
     import os
-    if os.path.exists(file_name) and os.path.getsize(file_name) > 0:
-        with open(file_name, 'r') as book_data:
+    if os.path.exists(phone_book_arg) and os.path.getsize(phone_book_arg) > 0:
+        with open(phone_book_arg, 'r') as book_data:
             for line in book_data:
                 print(line)
         print("Выберите действие:\nadd - добавить контакт, find - найти контакт, exit - закрыть справочник")
@@ -15,26 +15,25 @@ def check_phone_book(file_name,cursor):
             cursor=input()
         if cursor == "add":
            functions_phonebook.addition()
-           check_phone_book(phone_book,pointer)
+           check_phone_book(phone_book)
         elif cursor == "find":
-            functions_phonebook.find_contact(file_name)
-            check_phone_book(phone_book,pointer)
+            functions_phonebook.find_contact(phone_book_arg)
+            check_phone_book(phone_book)
         else:
             print("Good Bye!")
 
     else:
-        print("Справочник пуст!\nВыберите действие:\nadd - добавить контакт, exit - закрыть справочник")
-        cursor=input()
+        cursor=input("Справочник пуст!\nВыберите действие:\nadd - добавить контакт, exit - закрыть справочник")
         while(cursor != "add" and cursor != "exit"):
             print("Error!")
             cursor=input()
         if cursor == "add":
            functions_phonebook.addition()
-           check_phone_book(phone_book,pointer)
+           check_phone_book(phone_book)
         else:
             print("Good Bye!")
                 
 
 
 
-check_phone_book(phone_book,pointer)
+check_phone_book(phone_book)
