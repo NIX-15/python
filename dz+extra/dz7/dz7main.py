@@ -10,7 +10,7 @@ def check_phone_book(phone_book_arg):
                 print(line)
         print("Выберите действие:\nadd - добавить контакт, find - найти контакт, exit - закрыть справочник")
         cursor = input()
-        while(cursor != "add" and cursor != "exit" and cursor != "find"):
+        while cursor not in ["add","exit","find"]:
             print("Error!")
             cursor=input()
         if cursor == "add":
@@ -24,7 +24,7 @@ def check_phone_book(phone_book_arg):
 
     else:
         cursor=input("Справочник пуст!\nВыберите действие:\nadd - добавить контакт, exit - закрыть справочник")
-        while(cursor != "add" and cursor != "exit"):
+        while cursor not in ["add","exit"]:
             print("Error!")
             cursor=input()
         if cursor == "add":
