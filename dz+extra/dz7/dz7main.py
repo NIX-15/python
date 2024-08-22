@@ -1,10 +1,10 @@
 import functions_phonebook
 phone_book = "phone_book.txt"
-#pointer = ""
 
 def check_phone_book(phone_book_arg):
     import os
     if os.path.exists(phone_book_arg) and os.path.getsize(phone_book_arg) > 0:
+        print("\nПрограмма 'Справочник'\n")
         with open(phone_book_arg, 'r') as contacts:
             for line in contacts:
                 print(line)
