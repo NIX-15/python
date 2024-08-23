@@ -6,13 +6,9 @@ def check_phone_book(phone_book_arg):
     if os.path.exists(phone_book_arg) and os.path.getsize(phone_book_arg) > 0:
         print("\nПрограмма 'Справочник'\n")
         with open(phone_book_arg, 'r') as contacts:
-            for line in contacts:
-                print(line)
-        print("Выберите действие:\nadd - добавить контакт, find - найти контакт, exit - закрыть справочник")
-        cursor = input()
-        while cursor not in ["add","exit","find"]:
-            print("Error!")
-            cursor=input()
+            for line in contacts: print(line)        
+        cursor = input("Выберите действие:\nadd - добавить контакт, find - найти контакт, exit - закрыть справочник\n").lower()
+        while cursor not in ["add","exit","find"]: cursor=input("Error!\n").lower()    
         if cursor == "add":
            functions_phonebook.addition()
            check_phone_book(phone_book)
@@ -21,19 +17,9 @@ def check_phone_book(phone_book_arg):
             check_phone_book(phone_book)
         else:
             print("Good Bye!")
-
     else:
-        cursor=input("Справочник пуст!\nВыберите действие:\nadd - добавить контакт, exit - закрыть справочник")
-        while cursor not in ["add","exit"]:
-            print("Error!")
-            cursor=input()
-        if cursor == "add":
-           functions_phonebook.addition()
-           check_phone_book(phone_book)
-        else:
-            print("Good Bye!")
-                
-
-
+        cursor=input("Справочник пуст!\nВыберите действие:\nadd - добавить контакт, exit - закрыть справочник").lower()
+        while cursor not in ["add","exit"]: cursor=input("Error!\n").lower()
+        (functions_phonebook.addition(), check_phone_book(phone_book)) if cursor == "add" else print("Good Bye!")
 
 check_phone_book(phone_book)
